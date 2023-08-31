@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<form action="" method="post">
+			<label for="jmeno">Jméno</label><br />
+			<input type="text" name="jmeno" id="jmeno" value="Kuba" required />
+			<br />
+
+			<label for="info">Informace o mě</label><br />
+			<textarea name="info" id="info" cols="30" rows="10">Ahoj</textarea
+			><br />
+
+			<label for="stat">Stát</label><br />
+			<select name="stat" id="stat">
+				<optgroup label="EU">
+					<option value="cs">Česko</option>
+					<option value="sk" selected>Slovensko</option>
+					<option value="de">Německo</option>
+				</optgroup>
+				<optgroup label="Asie">
+					<option value="jp">Japonsko</option>
+					<option value="cn">Čína</option>
+					<option value="cc">Korea</option>
+				</optgroup>
+			</select>
+			<br />
+
+			<input type="checkbox" name="pravidla" id="pravidla" />
+			<label for="pravidla">Souhlasím s pravidly aplikace</label><br />
+
+			<input type="submit" value="Odeslat" />
+		</form>
+	</body>
+</html>

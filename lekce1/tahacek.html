@@ -1,0 +1,581 @@
+<!-- Toto je komentář. Cokoli co vložíte mezi otervírací a zavírací značku komentáře nebude vykresleno na obrazovku. -->
+
+<!--
+  Komentář se používá k dokumentaci kódu - proč je kód napsaný, jak je napsaný, případně poznámky k tomu co se má upravit/dodělat (úkoly pro sebe nebo kolegy).
+  Úkol se v komentáři typisky označuje anglickým TODO, příklad:
+
+  TODO: dodělat strukturu pro rozbalovací nabídku
+
+  Komentáře s poznámkami i úkoly se píši nad daný fragment kódu, viz. níže popisky u nekterých elementů.
+  ---
+
+  Další využití komentáře je pro tzv. zakomentování kódy. V podstatě se jedná o vypnutí části programu tím, že se kód vloží do komentáře.
+  V HTML tímto způsobem snadno a rychle skryjete část struktury stránky (HTML kódu).
+-->
+
+<!-- Definice verze HTML => v tomto případě se jedná o HTML 5 -->
+<!DOCTYPE html>
+<!-- Značka (anglicky - tag) html je kořen celého dokumentu, atribut "lang" je nepovinný, ale velmi užitečný - udává jazyk celého dokumentu. V tomto případě češtinu, doporučuji vždy používat -->
+<html lang="cs">
+	<!-- Značka head označuje sekci s metadaty. Zde uvádíme informace pro prohlížeče a vyhledávače. Téměř nic z této sekce se nikde nevykresluje, ale poskytuje kontext o naší aplikaci. -->
+	<head>
+		<!-- Zde používáme meta tag pro nastavení znakové sady. Doporučuji používat UTF-8 protože podporuje v podstatě všechny znaky, které budeme vykreslovat na obrazovku. -->
+		<meta charset="UTF-8" />
+		<!-- Tento meta tag říká, jak se bude aplikace chovat na mobilních zařízeních (zobrazení). Není potřeba upravovat. -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="description"
+			content="Tento meta tag obshahuje popisek stránky - o čem stránka je. Zobrazí se ve výsledcích vyhledávání."
+		/>
+
+		<!--
+			Párová značka style pro použití kaskádových stylů (CSS) uvnitř HTML dokumentu.
+
+			Dobrá praxe: vždy se snažte styly uchovávat v separátním souboru, který nalinkujete do HTML dokumentu, např.:
+			<link rel="stylesheet" href="style.css">
+		-->
+		<style>
+			/* Toto je komentář v CSS - níže použijeme CSS pravidla pro ostylovánívšech tabulek, které mají třídu (class) "table" */
+			.table {
+				border-collapse: collapse;
+				margin-top: 1rem;
+
+				& td,
+				th {
+					border: 1px solid black;
+					padding: 0.35rem 0.5rem;
+				}
+			}
+
+			.code {
+				font-family: monospace;
+				padding: 0.2rem;
+				border-radius: 0.2rem;
+				background: #f7f7f7;
+			}
+
+			.lists {
+				display: flex;
+			}
+
+			/* Zde pro výběr elementů pro aplikování stylů používáme přímo jméno tagu - bude použit na všechny <code> elementy. */
+			code {
+				padding: 0.5rem;
+				border-radius: 0.5rem;
+				background: #f7f7f7;
+			}
+
+			dt {
+				font-weight: 600;
+			}
+		</style>
+
+		<!-- Značka title je titulek stránky, který je použit na kartě prohlížeče + ve výsledcích vyhledávání (třeba v googlu). -->
+		<title>Taháček k úvodu do HTML</title>
+	</head>
+	<!-- Značka body označuje samotné tělo stránky. Zde vložený kód bude vykreslen na obrazovku -->
+	<body>
+		<h1>Taháček k úvodu do HTML</h1>
+		<p>Terminologie:</p>
+		<!-- Toto je definiční seznam -->
+		<dl>
+			<dt>Tag/Značka</dt>
+			<dd>
+				Tagy, nebo česky značky, jsou stavební bloky, ze kterých jsou
+				seskládány jednotlivé HTML dokumenty (stránky).
+			</dd>
+			<dt>Element</dt>
+			<dd>HTML element je komponenta poskládaná z tagu a jeho obsahu.</dd>
+		</dl>
+
+		<p>
+			Tento tahák je záměrně navržen tak, aby bylo nutné zobrazit si jeho
+			zdrojový kód (pomocí VS Code nebo vývojářských nástrojů v prohlížeči
+			- klávesová zkratka F12 nebo crtl+shift+i).
+		</p>
+
+		<h2>Rozdělení HTML značek (tagů)</h2>
+		<h3>Párové a nepárové</h3>
+		<p>
+			<strong>Párové</strong> značky mají otevírací a zavírací značku.
+			Další kód nebo obsah se píše mezi ně, např. odstavec za=íšeme takto:
+		</p>
+		<!-- Značka code je používána pro zobzazení kódu -->
+		<code>
+			<!-- Zde jsou použity tzv. HTML entity pro vyklreslení speciálních znaků (ostré závorky). -->
+			&lt;p&gt; - otevírací značka označuje začátek bloku. Na konci
+			použijeme zavírací značku, liší se pouze přidaným lomítkem:
+			&lt;/p&gt;
+		</code>
+		<p>
+			<strong>Nepárové</strong> značky (samouzavírací) se neskádájí ze
+			dvou značek, ale pouze z jedné. Příklad - obrázek:
+		</p>
+		<code> &lt;img src="zdroj/obrazku" alt="Alternativné text" /&gt; </code>
+
+		<h3>Blokové a řádkové</h3>
+		<p>
+			<strong>Blokové</strong> značky jsou, jak název napovídá, bloky,
+			které v toku dokumentu vždy zabírají maximalní možné místo. To se
+			ovšem týká pouze <em>šířky</em>. Blokový element tedy vždy zabere
+			celou dostupnou šířku a jeho výška je odvozena od velikosti obsahu
+			uvnitř bloku.
+		</p>
+		<p>
+			<strong>Řádkové</strong> značky jsou používány pro modifikaci
+			textu/obsahu uvnitř blokových značek. Například tučný text, kurzíva,
+			odkaz apod.
+		</p>
+		<p>
+			<strong>Pozor!</strong> není možné vkládat blokové elementy do
+			řádkových, tímto způsobem vytvoříte nevalidní kód.
+		</p>
+
+		<h2>Atributy HTML značek</h2>
+		<p>
+			Atributy jsou vlastrnosti, které můžete jednotlivým značkám
+			přiřadit. Některé jsou povinné (například atribut src u obrázku -
+			zdroj, kde je obrázek uložen), ostatní jsou nepovinné. Plný výčet
+			najdete v dokumentaci (třeba MDN).
+		</p>
+		<p>
+			Atributy zapisujeme násladovně: jménoAtributu="obsah/přidělená
+			vlastnost", např.:
+		</p>
+		<code> &lt;img src="zdroj/obrazku" alt="Alternativné text" /&gt; </code>
+
+		<!-- Zde používáme tabulku pro zobrazení informací v přehledné formě a zároveň přiřazujeme tabulce třídu pomocí atributu class -->
+		<table class="table">
+			<thead>
+				<tr>
+					<!-- Zde používáme atribut colspan, abychom roztáhli jeden sloupec tabulky, přes více sloupců (konkrétně 2) -->
+					<th colspan="2">Důležité atributy</th>
+				</tr>
+				<tr>
+					<th>Atribut</th>
+					<th>Popis</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><span class="code">id</span></td>
+					<td>
+						Unikátní identifikátor HTML elementu na stránkce. Může
+						být pouze jeden. Využití například jako kotva pro
+						navigaci na velmi dlouhé stránce nebo jako ID pro
+						javascript. Může být použit i jako selektor pro CSS, ale
+						obecne se doporučuje používat pro stylování radějí
+						třídy.
+					</td>
+				</tr>
+				<tr>
+					<td><span class="code">class</span></td>
+					<td>
+						Class neboli třída je také indentifikátar, ale oproti ID
+						může být třidat přidělena libovolnému počtu HTML
+						elementů na stránce. Používá se hlavně jako selektor pro
+						stylování a Javascript.
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<p>
+			Existuje mnoho dalších atributů, velké množství z nich je specifické
+			pro konkrétní elementy, pro detaily nahlédněte do dokumentace (opět
+			třeba MDN).
+		</p>
+
+		<h2>Nejpoužívanější značky</h2>
+		<p>
+			Pokud je značka nepárová, je to u ní explicitně uvedeno. Všechny
+			ostatní jsou párové.
+		</p>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th colspan="2">Základní důležité značky</th>
+				</tr>
+				<tr>
+					<th>Značka (tag)</th>
+					<th>Popis</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						<span class="code">DOCTYPE</span>
+					</td>
+					<td>
+						Úvodní značka, která definuje verzi použitého HTML. Musí
+						být vždy jako první a nemá uzavírací značku ani lomítko.
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="code">html</span>
+					</td>
+					<td>Kořenová značka HTML dokumentu.</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="code">head</span>
+					</td>
+					<td>
+						Značka pro sekci s metadaty stránky - obsah této části
+						se příno na stránce nevykresluje, ale je velmi důležitý
+						pro SEO.
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="code">meta</span>
+					</td>
+					<td>
+						<em>Nepárová</em> značka, která obsahuje různé informace
+						o stránce (příklad viz. kód této stránky). Používá se
+						uvnitř značky <strong>head</strong>.
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="code">link</span>
+					</td>
+					<td>
+						<em>Nepárová</em> značka odkazující na nějaký zdroj,
+						který stránka využívá (například CSS nebo ikonka).
+						Používá se uvnitř značky <strong>head</strong>.
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="code">title</span>
+					</td>
+					<td>
+						Titulek stránky, který je zobrazen na záložce
+						vyhldávače, ale také v oblíbených položkách nebo ve
+						výsledku vyhledávání. Používá se uvnitř značky
+						<strong>head</strong>.
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="code">body</span>
+					</td>
+					<td>
+						Značka, která označuje samotné tělo stránky. Vše co bude
+						uvnitř této značky se vykreslí na obrazovku.
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<p>
+			V této části taháku jsou vypsány pouze HTML značky, které se
+			používají uvnitř značky <span class="code">body</span>.
+		</p>
+		<table class="table">
+			<thead>
+				<tr>
+					<th colspan="2">Blokové značky</th>
+				</tr>
+				<tr>
+					<th>Značka (tag)</th>
+					<th>Popis</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						<span class="code">h1</span> -
+						<span class="code">h6</span>
+					</td>
+					<td>
+						Nadpisy s různými velikostmi - čím vyšší číslo, tím
+						menší text.
+						<br /><strong>Pozor!</strong> nadpis <em>h1</em> by měl
+						být na každé stránce pouze jeden. Z ostatních velikostí
+						nadpisů můžete vytvořit strukturu obhsahu stránky a
+						mohou se opakovat.
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="code">p</span>
+					</td>
+					<td>Odstavec textu.</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="code">ol</span> v kombinaci s
+						<span class="code">li</span>
+					</td>
+					<td>
+						Setřízený (číslovaný) seznam. Jako odrážky jsou použita
+						čísla, písmena a řecké číslice. Příklad pod tabulkou.
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="code">ul</span> v kombinaci s
+						<span class="code">li</span>
+					</td>
+					<td>
+						Nesetřízený seznam. Jako odrážky jsou použity symboly.
+						Příklad pod tabulkou.
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="code">table</span> v kombinaci s
+						<span class="code">thead</span>,
+						<span class="code">tbody</span>,
+						<span class="code">tfoot</span>,
+						<span class="code">tr</span>,
+						<span class="code">th</span> a
+						<span class="code">td</span>
+					</td>
+					<td>
+						Tabulka, pro příklad kódu nahlédněte do zdrojového kódu
+						této stránky. Buď pomocí editoru (VS Code) nebo pomocí
+						vývojářských nástrojů (klávesová zkratka F12 nebo
+						ctrl+shift+i).
+						<br /><strong>Pozor!</strong> Na rozdíl od ostatních
+						blokvých elementů nevyplní tabulka maximální možnou
+						šířku stránky pokud nemá dostatečně velký obsah.
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="code">div</span>
+					</td>
+					<td>
+						Generický kontejner. Blokový element s širokým využitím.
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<h3>Příklady seznamů</h3>
+		<!-- Příklad využití tagu div - vytvoření dvousloupcového layout pomocí CSS -->
+		<div class="lists">
+			<ol>
+				<li>první</li>
+				<li>druhý</li>
+				<li>třetí</li>
+				<li>čtvrtý</li>
+			</ol>
+			<ol type="a">
+				<li>první</li>
+				<li>druhý</li>
+				<li>třetí</li>
+				<li>čtvrtý</li>
+			</ol>
+			<ol type="A">
+				<li>první</li>
+				<li>druhý</li>
+				<li>třetí</li>
+				<li>čtvrtý</li>
+			</ol>
+			<ol type="i">
+				<li>první</li>
+				<li>druhý</li>
+				<li>třetí</li>
+				<li>čtvrtý</li>
+			</ol>
+			<ol type="I">
+				<li>první</li>
+				<li>druhý</li>
+				<li>třetí</li>
+				<li>čtvrtý</li>
+			</ol>
+		</div>
+
+		<div class="lists">
+			<ul>
+				<li>první</li>
+				<li>druhý</li>
+				<li>třetí</li>
+				<li>čtvrtý</li>
+			</ul>
+			<ul type="circle">
+				<li>první</li>
+				<li>druhý</li>
+				<li>třetí</li>
+				<li>čtvrtý</li>
+			</ul>
+			<ul type="square">
+				<li>první</li>
+				<li>druhý</li>
+				<li>třetí</li>
+				<li>čtvrtý</li>
+			</ul>
+		</div>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th colspan="2">Řádkové značky</th>
+				</tr>
+				<tr>
+					<th>Značka (tag)</th>
+					<th>Popis</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						<span class="code">br</span>
+					</td>
+					<td>
+						Řádkový zlom uvnitř odstavce - <em>nepárová značka</em>.
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="code">strong</span>
+					</td>
+					<td>
+						Tučný text včetně sémantického významu - dáváte
+						vyhledávacímu stroji najevo, že text uvnitř je důležitý.
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="code">b</span>
+					</td>
+					<td>Tučný text.</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="code">em</span>
+					</td>
+					<td>
+						Kurziva včetně sémantického významu - dáváte
+						vyhledávacímu stroji najevo, že text uvnitř je důležitý.
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="code">i</span>
+					</td>
+					<td>Kurziva.</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="code">a</span>
+					</td>
+					<td>
+						Značka pro hypertextový odkaz (povinný atribut href).
+						Odkazovat můžete na stránku v internetu, stránku uvnitř
+						aplikace nebo na kotvu (ID přiřazené nějakému elementu).
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="code">img</span>
+					</td>
+					<td>
+						<em>Nepárová značka</em> pro zobrazení obrázků s
+						povinným atributem src (zdroj obrázku - v podstatě odkaz
+						na umístění na serveru). <br /><strong>Pozor!</strong>
+						zabere tolik místa, jak je velký obrázek!
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="code">small</span>
+					</td>
+					<td>Zmenšený text.</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="code">span</span>
+					</td>
+					<td>
+						Generický řádkový kontejner. Příklad využití je i na
+						této stránce, nahlédněte do zdrojového kódu.
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="code"></span>
+					</td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<h2>Užitečné odkazy</h2>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Odkaz</th>
+					<th>Popis</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						<a href="https://code.visualstudio.com/" target="_blank"
+							>https://code.visualstudio.com/</a
+						>
+					</td>
+					<td>
+						Odkaz na stažení IDE VS Code. IDE je zkratkou pro
+						integrované vývojové přostředí, zjednodušeně je to
+						editor, který vám pomáhá psát programy. Ve VS Code
+						můžete v podstatě napsat libovolný program v libovolném
+						jazyce.
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a
+							href="https://developer.mozilla.org/en-US/"
+							target="_blank"
+							>https://developer.mozilla.org/en-US/</a
+						>
+					</td>
+					<td>
+						Dokumentace pro základní webové technologie
+						(HTML/CSS/Javascript).
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://caniuse.com/" target="_blank"
+							>https://caniuse.com/</a
+						>
+					</td>
+					<td>
+						Nástroj, který vám ukáže do jaké míry je podporovaná
+						technologie, kterou chcete použít.
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a
+							href="https://www.w3schools.com/html/html_blocks.asp"
+							target="_blank"
+							>https://www.w3schools.com/html/html_blocks.asp</a
+						>
+					</td>
+					<td>
+						Přehledný výpis některých blokových a řádkových
+						elementů.
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://www.jakpsatweb.cz/" target="_blank"
+							>https://www.jakpsatweb.cz/</a
+						>
+					</td>
+					<td>České stránky o programování webů.</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>

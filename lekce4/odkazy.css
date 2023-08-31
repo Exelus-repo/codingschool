@@ -1,0 +1,22 @@
+a:hover {
+	text-decoration: none;
+}
+
+a:visited {
+	color: black;
+}
+
+a[download] {
+	font-size: 1.1rem;
+	text-decoration: none;
+}
+
+a[href*="127.0.0.1"] {
+	font-size: 1.3rem;
+}
+
+span {
+	text-transform: uppercase;
+	font-weight: 600;
+	font-style: italic;
+}

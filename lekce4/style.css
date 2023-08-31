@@ -1,0 +1,53 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0 auto;
+	width: 75vw; /* vw - jednotka viewport width -> šířka zobrazovací oblasti okna */
+	height: 100vh; /* vh - jednotka viewport height -> výška zobrazovací oblasti okna */
+}
+
+h2:first-child {
+	font-family: "Ubuntu", sans-serif;
+}
+
+h2 {
+	color: darkgray;
+	text-align: center;
+	padding: 1rem;
+	font-size: 1.75rem;
+}
+
+aside > p {
+	color: darkgray;
+	width: 80%;
+	height: 2rem;
+
+	overflow-y: auto;
+}
+
+main,
+aside {
+	border: 1px solid darkgoldenrod;
+}
+
+main > p:nth-child(3) {
+	color: darkcyan;
+}
+
+main > p:first-child {
+	text-align: justify;
+
+	background-color: bisque;
+
+	padding: 1rem;
+}
+
+.paragraph {
+	color: darkred;
+}
+
+h2 + p {
+	font-size: 1.35rem;
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<h1>Registracni formular</h1>
+		<form action="" method="post">
+			<fieldset>
+				<p>
+					<strong>Základni info</strong>
+				</p>
+				<br /><br />
+
+				<label for="jmeno">Jmeno: </label>
+				<input type="text" name="jmeno" id="jmeno" required />
+				<br /><br />
+
+				<label for="prijmeni">Prijmeni: </label>
+				<input type="text" name="prijmeni" id="prijmeni" required />
+				<br /><br />
+
+				<label for="email">Email: </label>
+				<input type="email" name="email" id="email" required />
+				<br /><br />
+
+				<label for="heslo">Heslo: </label>
+				<input type="password" name="heslo" id="heslo" required />
+				<br /><br />
+
+				<label for="obrazek">Obrazek: </label>
+				<input type="file" name="obrazek" id="obrazek" required />
+			</fieldset>
+			<br />
+			<fieldset>
+				<p>
+					<strong>Zakladni parametry</strong>
+				</p>
+				<br /><br />
+
+				Pohlavi:
+				<br />
+				<label for="muz">Muz </label>
+				<input type="radio" name="pohlavi" id="muz" required />
+				<label for="zena">Zena </label>
+				<input type="radio" name="pohlavi" id="zena" required />
+				<label for="jine">Jine </label>
+				<input type="radio" name="pohlavi" id="jine" required />
+				<br /><br />
+
+				<label for="vek">Věk: </label>
+				<input type="number" name="vek" id="vek" required />
+				<br /><br />
+
+				<label for="datumNarozeni">Datum narozeni: </label>
+				<input
+					type="date"
+					name="datumNarozeni"
+					id="datumNarozeni"
+					required
+				/>
+			</fieldset>
+			<br />
+			<fieldset>
+				<p>
+					<strong>Nepovinne udaje</strong>
+				</p>
+				<br /><br />
+
+				<label for="oSobe">O sobe: </label>
+				<br />
+				<textarea
+					name="oSobe"
+					id="oSobe"
+					cols="30"
+					rows="10"
+				></textarea>
+				<br /><br />
+
+				Konicky:
+				<br />
+				<label for="cestovani">Cestovani </label>
+				<input type="checkbox" name="cestovani" id="cestovani" />
+				<label for="hudba">Hudba </label>
+				<input type="checkbox" name="hudba" id="hudba" />
+				<label for="programovani">Programovani </label>
+				<input type="checkbox" name="programovani" id="programovani" />
+				<br /><br />
+
+				<label for="jazyk">Jazyk: </label>
+				<select name="jazyk" id="jazyk">
+					<optgroup label="EU">
+						<option value="cs">Cesky</option>
+						<option value="sk">Anglicky</option>
+						<option value="de">Německy</option>
+					</optgroup>
+					<optgroup label="Asie">
+						<option value="cn">Čínsky</option>
+						<option value="jp">Japonsky</option>
+						<option value="">Vietnamsky</option>
+					</optgroup>
+				</select>
+			</fieldset>
+
+			<br />
+			<input type="submit" value="Submit" />
+			<input type="reset" value="Reset" />
+		</form>
+	</body>
+</html>
