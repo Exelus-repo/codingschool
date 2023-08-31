@@ -1,0 +1,18 @@
+h1 {
+	text-align: center;
+}
+
+img {
+	width: 20rem;
+}
+
+section {
+	display: flex;
+	gap: 2rem;
+	flex-wrap: wrap;
+	justify-content: center;
+
+	> p {
+		flex-basis: 20rem;
+	}
+}
