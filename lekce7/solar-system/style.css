@@ -1,0 +1,161 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background: #000000;
+    position: relative;
+}
+
+.planet {
+    border-radius: 50%;
+}
+
+.orbit {
+    position: absolute;
+    animation-name: orbit;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.sun {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 3.5rem;
+    height: 3.5rem;
+    background: yellow;
+}
+
+.mercury {
+    width: 0.5rem;
+    height: 0.5rem;
+    background: red;
+}
+
+.mercury-orbit {
+    width: 6rem;
+    height: 6rem;
+    top: calc(50% - 3rem);
+    left: calc(50% - 3rem);
+    animation-duration: 3s;
+}
+
+.venus {
+    width: 0.75rem;
+    height: 0.75rem;
+    background: goldenrod;
+}
+
+.venus-orbit {
+    width: 8rem;
+    height: 8rem;
+    top: calc(50% - 4rem);
+    left: calc(50% - 4rem);
+    animation-duration: 4s;
+}
+
+.earth {
+    width: 0.95rem;
+    height: 0.95rem;
+    background: blue;
+    top: 6.5rem;
+}
+
+.earth-orbit {
+    width: 10rem;
+    height: 10rem;
+    top: calc(50% - 5rem);
+    left: calc(50% - 5rem);
+    animation-duration: 5s;
+}
+
+.mars {
+    width: 0.8rem;
+    height: 0.8rem;
+    background: darkred;
+    top: 9rem;
+}
+
+.mars-orbit {
+    width: 13rem;
+    height: 13rem;
+    top: calc(50% - 6.5rem);
+    left: calc(50% - 6.5rem);
+    animation-duration: 6s;
+}
+
+.jupiter {
+    width: 1.75rem;
+    height: 1.75rem;
+    background: sandybrown;
+    top: 12rem;
+}
+
+.jupiter-orbit {
+    width: 20rem;
+    height: 20rem;
+    top: calc(50% - 10rem);
+    left: calc(50% - 10rem);
+    animation-duration: 8s;
+}
+
+.saturn {
+    width: 1.35rem;
+    height: 1.35rem;
+    background: aqua;
+    top: 14.5rem;
+}
+
+.saturn-orbit {
+    width: 25rem;
+    height: 25rem;
+    top: calc(50% - 12.5rem);
+    left: calc(50% - 12.5rem);
+    animation-duration: 9s;
+}
+
+.uranus {
+    width: 1.15rem;
+    height: 1.15rem;
+    background: goldenrod;
+    top: 17rem;
+}
+
+.uranus-orbit {
+    width: 28rem;
+    height: 28rem;
+    top: calc(50% - 14rem);
+    left: calc(50% - 14rem);
+    animation-duration: 10s;
+}
+
+.neptune {
+    width: 1rem;
+    height: 1rem;
+    background: darkgreen;
+    top: 19rem;
+}
+
+.neptune-orbit {
+    width: 32rem;
+    height: 32rem;
+    top: calc(50% - 16rem);
+    left: calc(50% - 16rem);
+    animation-duration: 12s;
+}
+
+@keyframes orbit {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
