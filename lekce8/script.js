@@ -31,8 +31,40 @@ console.log(someText.replace('World', 'All'));
 console.log(someText);
 console.log(someText.split("").reverse().join(""));
 
+/* zřetězení */
+const firstName = "John";
+const lastName = "Doe";
+console.log(firstName + lastName);
+
 let array = someText.split(" ");
 
 console.log(array);
 console.log(array.length);
 console.log(array.reverse());
+
+const constNumber = 10;
+let variableNumber = 7;
+
+console.log("----------------");
+console.log(constNumber - variableNumber);
+console.log(constNumber + variableNumber);
+console.log(constNumber / variableNumber);
+console.log(constNumber * variableNumber);
+console.log(constNumber % variableNumber);
+
+const str = "ahoj";
+
+console.log("proměnná je: str");
+console.log('proměnná je: str');
+console.log(`proměnná je: ${str}`);
+
+let myObject = {
+    surename: "Smith",
+    printName: function () {
+        console.log(this.surename);
+    }
+};
+
+console.log(myObject.name);
+console.log(myObject.surename);
+myObject.printName();
