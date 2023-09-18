@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        input:disabled {
+            color: gray;
+        }
+
+        input:invalid {
+            border: 1px solid darkred;
+        }
+
+        input:valid {
+            border: 1px solid darkgreen;
+        }
+
+        input:required {
+            border-bottom: 2px solid black;
+        }
+    </style>
+
+    <title>Document</title>
+</head>
+
+<body>
+    <nav id="nav">
+        <a href="#">Odkaz 1</a>
+        <a href="#">Odkaz 3</a>
+    </nav>
+
+    <select name="select" id="select"></select>
+    <p class="paragraph first"></p>
+    <p class="paragraph"></p>
+    <p class="paragraph"></p>
+    <p class="paragraph"></p>
+    <p class="paragraph"></p>
+    <p class="paragraph"></p>
+    <div>
+        <h1 class="header">Záhlaví</h1>
+    </div>
+
+    <select name="select-primary" id="select-primary"></select>
+    <select name="select-secondary" id="select-secondary"></select>
+
+    <script src="script.js"></script>
+    <script src="selects.js"></script>
+</body>
+
+</html>
