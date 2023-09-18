@@ -1,4 +1,8 @@
-// pomocná funkce pro méně destruktivní odstraňování prvnků z DOMu
+/**
+ * Pomocná funkce pro méně destruktivní odstraňování prvků z DOMu.
+ * @param {HTMLElement} element 
+ * @returns odstraněný element
+ */
 function safeRemove(element) {
     const parentElement = element.parentElement;
     if (parentElement) {
