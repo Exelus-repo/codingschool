@@ -48,3 +48,12 @@ function setSelectOptions(dataSet, select) {
     removeSelectOptions(select);
     addSelectOptions(dataSet, select);
 }
+
+/**
+ * Pomocná funkce, která zjistí zda je předaný řetězec složen pouze z bílých znaků.
+ * @param {string} string Testovaný řetězec
+ * @returns 
+ */
+function isWhiteCharOnly(string) {
+    return /^\s+$/.test(string);
+}

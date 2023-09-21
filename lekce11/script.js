@@ -15,6 +15,13 @@ for (let i = 0; i < paragraphs.length; i++) {
     paragraphs[i].style.color = "blue";
 }
 
+// procházení pole/HTML kolekce od konce
+// for (let i = paragraphs.length - 1; i >= 0; i--) {
+//     paragraphs[i].innerText = `Ahoj ${i}!`;
+//     paragraphs[i].style.fontSize = "2rem";
+//     paragraphs[i].style.color = "blue";
+// }
+
 // velmi destruktivní metoda odstranění - úplně zlikviduje element
 const removedParagraph = paragraphs[1].remove();
 
