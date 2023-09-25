@@ -1,0 +1,29 @@
+// count
+// počete neaktivních uživatelských účtů
+SELECT COUNT(*) FROM users WHERE last_activity <= casovy_otisk - nejaka_hodnota
+
+// stránkování - dotaz na počet příspěvků
+SELECT COUNT(*) FROM posts WHERE category=1 // jednička, protože odkazujeme na ID katerorie v tabulce categories
+
+// prodej produktů na eshopu
+SELECT MAX(total_sales) FROM products // neljépe prodávaný produk ze všech
+SELECT MAX(total_sales) FROM products WHERE category='pc' // neljépe prodávaný produk ze dané kategorie
+
+// použití LIKE - výběr všech variant produktu (kde varianty produktu jsou samostatné řádky 
+// a doslišujeme je pouze úpravou jména, kde formát je základ_jména - varianta)
+SELECT * FROM products WHERE name LIKE 'Tričko%'
+
+// náhrada fulltextu -> vyhledávání v příspěvcích a seřadit podle data publikace
+SELECT * FROM posts WHERE name LIKE '%vyhledavaci_dotaz%' OR content LIKE '%vyhledavaci_dotaz%' ORDER BY published DESC
+
+
+// IN oprátor -> zanořený dotaz
+// produky v objednávce
+SELECT * FROM products WHERE product_id IN (SELECT product_id FROM order_products WHERE order_id=155)
+
+
+// výběr dat v nějakém časovém rozpětí
+SELECT * FROM orders WHERE date_ordered BETWEEN $start_date AND $end_date
+
+// průměrná cena objednávky v časovém rozpětí
+SELECT AVG(total_price) FROM orders WHERE date_ordered BETWEEN $start_date AND $end_date // end_date není inkluzivní

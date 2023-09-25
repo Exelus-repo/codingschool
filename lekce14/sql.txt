@@ -1,0 +1,48 @@
+DELETE FROM table_name WHERE id=5 // vymaže řádek s id 5
+DELETE FROM table_name // vymaže vše, tento příkaz je roven TRUNCATE TABLE table_name
+
+
+// práce ve třídě
+1. SELECT DISTINCT druh FROM utulek
+2. SELECT DISTINCT jmeno FROM utulek
+3. SELECT vek FROM utulek WHERE druh='Pes'
+4. SELECT ockovani FROM utulek WHERE jmeno='Bobik'
+5. SELECT adopce FROM utulek WHERE jmeno='Timmy'
+
+// Chceme zobrazit všechny     produkty       z kategorie počítače
+      SELECT          *      FROM products     WHERE category='pc'
+
+
+// Chceme zobrazit všechny produkty z kategorie počítače a zároveň mají cenu nižší než 20000
+SELECT * FROM products WHERE category='pc' AND price < 20000 
+
+
+// Chceme zobrazit všechny produkty z kategorie počítače nebo kategorie mobily 
+SELECT * FROM products WHERE category='pc' OR category='phones'
+SELECT * FROM products WHERE category IN ('pc', 'phones') // to samé, ale s klíčovým slovem IN
+
+// Chceme zobrazit všechny produkty z kategorie počítače a zároveň mají cenu nižší než 20000 a seřaď produky od nejlevnějších
+SELECT * FROM products WHERE category='pc' AND price < 20000 ORDER BY price ASC
+
+
+// Máme aplikaci, kde uživatelé po urcité době neaktivity smažeme
+// Nejdív je zísáme z DB
+SELECT id, email FROM users WHERE last_activity <= casovy_otisk - nejaka_hodnota
+// v PHP cyklem projdeme záznamy a pošleme notifikační email + kontrola jestli náš SMTP server odeslal email
+// pokud ano:
+UPDATE users SET inactivity_email_sent=true WHERE id=id_co_jsme_vytáhli_z_DB
+
+// v tomto případě je méně efektivní než separátní dotazy
+// 2 způsob -> v cyklu bychom ukládali id uživatelů, kterým jsme odeslali email úspěšně
+$idecka -> pole, do kterého přidáme id aktuálního uživatele
+
+$dotaz = "UPDATE users SET inactivity_email_sent=true WHERE id IN ($idecka)" // pole jsem zpocesovaly, aby ho bylo možné vložit do řetězce
+
+
+// Práce ve třádě 2
+1. SELECT * FROM users WHERE count='Kerry'
+2. INSERT INTO users (first_name, last_name, email, county) VALUES ('John', 'Doe', 'john@doe.com' 'Dublin')
+3. UPDATE users SET county='Sligo' WHERE county='Dublin' OR county='Galway'
+4. UPDATE uesrs SET email='elbarto@website.ie' WHERE id=4
+5.1 DELETE FROM users WHERE last_name='Smith' AND NOT county='Cork'
+5.2 DELETE FROM users WHERE last_name='Smith' AND county<>'Cork'
