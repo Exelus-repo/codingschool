@@ -27,3 +27,22 @@ SELECT * FROM orders WHERE date_ordered BETWEEN $start_date AND $end_date
 
 // průměrná cena objednávky v časovém rozpětí
 SELECT AVG(total_price) FROM orders WHERE date_ordered BETWEEN $start_date AND $end_date // end_date není inkluzivní
+
+// náhled příspěvku -> data + thumbnail
+SELECT id, name, (SELECT image FROM images WHERE id=posts.id AND thumbnail=true) AS image FROM posts
+
+// přepis do JOIN
+SELECT posts.id, posts.name, images.image FROM posts LEFT JOIN images ON posts.id=images.post_id AND posts.thumbnail=true
+
+// kolik lidí jezdí konkrétní značkou vozu
+tabulka - users:
+id, username, ... , car_brand
+
+SELECT COUNT(*), car_brand FROM users GROUP BY car_brand
+
+// práce ve třidě
+1. SELECT id, name FROM citizens WHERE name LIKE '%a%'
+2. SELECT email FROM citizens WHERE email LIKE 'b%'
+3. SELECT name FROM citizens WHERE name NOT LIKE '%b%'
+4. SELECT COUNT(*) FROM citizens
+5. SELECT COUNT(*) FROM citizens WHERE county='Galway'
