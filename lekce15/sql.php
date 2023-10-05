@@ -45,8 +45,8 @@ $statement->execute();
 $conn->close();
 
 $_2d_array = [
-    [hodnoty ve sloupcích],
-    [hodnoty ve sloupcích],
-    [hodnoty ve sloupcích],
-    [hodnoty ve sloupcích],
+    ["hodnoty ve sloupcích"],
+    ["hodnoty ve sloupcích"],
+    ["hodnoty ve sloupcích"],
+    ["hodnoty ve sloupcích"],
 ];
